@@ -1,0 +1,1 @@
+SCHTASKS /CREATE /SC DAILY /TN "MyTasks\Notepad task" /TR "task.bat" /ST 13:26

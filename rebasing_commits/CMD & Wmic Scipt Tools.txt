@@ -1,0 +1,94 @@
+
+
+1 RUN CMD / POWERSHELL AS ADMIN
+-------------------------------
+	
+	Windows+R
+	powershell "start cmd -v runAs"
+	or
+	powershell -Command "Start-Process cmd -Verb RunAs"
+
+
+2 TURN WIFI ON OR OFF USING WMIC, CMD, POWERSHELL
+-------------------------------------------------
+	
+	WMDIC
+
+	WMIC NIC GET NAME, INDEX
+		nic = network interface card
+	 wmic path win32_networkadapter where index=(number of the wifi adapter) call disable/enable
+
+	CMD
+
+	netsh interface show interface
+	netsh interface set interface "Interface name" enabled/disable
+
+	POWERSHELL
+
+	Get-NetAdapter | Format-Table
+	Disable-NetAdapter -Name "Adapter Name" -Confirm:$false
+	Enable-NetAdapter -Name "Adapter Name" -Confirm:$false
+
+3 INSTALL MSI ON UNINSTALL PROGRAMM USING CMD
+-------------------------------------------------
+	asAdmin
+
+	INSTALL
+	-------
+	msiexec /i "path\setup.msi"
+
+	UNISTALL
+	--------
+
+	wmic product get name
+	wmic product whre name = "programm name" call uninstall/nointeractive
+
+	POWERSHELL
+
+	Start-Process 'Path\setup.exe' "/S" // silent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Quand on examine une théorie et qu'on arrive toujours au meme resultat
+La l'hyposthèse  se transforme en fait
+Quan une théorie se transforme en fait que ce qui se passe ??
+
+Quand l'improbable se repete encore et encore ça devient plus que de la chance
+La voiture fait pas le pilote
