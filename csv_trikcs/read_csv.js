@@ -13,7 +13,7 @@ function readCsvFile(input) {
             console.log(e);
             csvData.size = e.total;
             csvData.fileData = e.target.result;
-            console.log(csvData.fileData.split('\n')[-1]);
+            console.log(csvData.fileData);
             parseData(csvData.fileData);
                     
          }
@@ -36,21 +36,4 @@ function parseData(data){
 }
 
 
-function saveData(data1){
-    let data = data1;
-    $.ajax({
-        url : 'http://127.0.0.1:8000/api/drivers/',
-        type : 'POST',
-        headers : {'X-CSRFToken' : $.cookie('csrftoken')},
-        dataType : 'json',
-        data : data,
-    })
-    .done(function(data){
-        
-        console.log(data);
-    })
-    .fail(function(data){
-        console.log(data);
-    });
 
-};

@@ -14,7 +14,7 @@ const objectToCsv = function(data){
 	}
 	return csvRows.join('\n');
 
-}; 
+},
 
 const download = function(data){
 	const blob = new Blob([data], {type: 'text/csv'});
